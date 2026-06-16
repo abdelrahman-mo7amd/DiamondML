@@ -1,0 +1,15 @@
+[
+  "Carat(Weight of Daimond)",
+  "log_carat",
+  "Depth",
+  "Table",
+  "X(length)",
+  "Y(width)",
+  "Z(Depth)",
+  "volume",
+  "log_volume",
+  "depth_ratio",
+  "cut_enc",
+  "color_enc",
+  "clarity_enc"
+]
