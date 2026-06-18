@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="gem"><i class="fa-solid fa-gem"></i></div>
+            <h1>Diamond Price Predictor</h1>
+            <p>Enter your diamond's 4Cs and dimensions to get an AI-powered price estimate</p>
+            <div class="status-pill">
+                <span class="pulse"></span>
+                <span id="badge-txt">ML Model Active</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <p class="cardLabel">Diamond Specifications</p>
+                <p class="sectionTitle">1. Carat Weight</p>
+                <div class="field sliderWrap">
+                    <label for="">Weight <span class="hint">(0.20 - 5.00 carats)</span></label>
+                    <div class="sliderRow">
+                        <input type="range" id="slCarat" min="0.2" max="5.0" step="0.01" value="1.0" oninput="onSlider(this)">
+                        <span class="sliderValue" id="sliderValue">1.00 ct</span>
+                    </div>
+                </div>
+
+                <p class="sectionTitle">2. Cut Quality</p>
+                <div class="qualityPills" id="pills-cut">
+
+                </div>
+                <input type="hidden" id="cut" value="Ideal">
+                <p class="sectionTitle">3. Color Grade <span style="font-size: 0.65rem; color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0;">(D = best / most colorless)</span></p>
+                <div class="qualityPills" id="pills-color"></div>
+                <input type="hidden" id="color" value="E">
+                <p class="sectionTitle">Clarity Grade <span style="font-size: 0.65rem; color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0;">(IF = best)</span></p>
+                <div class="qualityPills" id="pills-clarity"></div>
+                <input type="hidden" id="clarity" value="VVS1">
+
+                <hr>
+
+                <p class="sectionTitle">5. Proportions</p>
+                <div class="g2">
+                    <div class="field">
+                        <label for="">Depth % <span class='hint'>(40-85)</span></label>
+                        <input type="number" id="depth" value="61.5" min="40" max="85" step="0.1">
+                    </div>
+                    <div class="field">
+                        <label for="">Table % <span class="hint">(40-100)</span></label>
+                        <input type="number" id="table" value="55.0" min="40" max="100" step="0.1">
+                    </div>
+                </div>
+
+                <p class="sectionTitle">6. Dimensions (mm)</p>
+                <div class="g3">
+                    <div class="field">
+                        <label for="">X - Length</label>
+                        <input type="number" id="x" value="6.43" min="0.1" max="25" step="0.01">
+                    </div>
+                    <div class="field">
+                        <label for="">Y - Width</label>
+                        <input type="number" id="y" value="6.40" min="0.1" max="25" step="0.01">
+                    </div>
+                    </div>
+                    <div class="field">
+                        <label for="">Z - Depth</label>
+                        <input type="number" id="z" value="4.0" min="0.1" max="25" step="0.01">
+                    </div>
+                </div>
+
+                <button class="btn" id="btn" onclick="predict()">
+                    <span class="spin" id="spin"></span>
+                    <span id="btnTxt">Predict Price</span>
+                </button>
+
+                <div class="err" id="err"></div>
+
+                <hr>
+
+                <p class="cardLabel">Grade Reference</p>
+                <table class="infoTable">
+                    <tr><td>Cut</td> <td>Fair -> Good -> Very Good -> Premium -> Ideal</td></tr>
+                    <tr><td>Color</td> <td>J (tinted) -> D (colorless)</td></tr>
+                    <tr><td>Clarity</td> <td>I1 (inclusions) -> IF (flawless)</td></tr>
+                    <tr><td>Carat</td> <td>Weight - 1 ct = 0.2 g. Bigger -> pricier.</td></tr>
+                </table>
+            </div>
+
+            <div class="resultCard">
+                <p class="cardLabel">Price Estimate</p>
+
+                <div class="placeholder" id="ph">
+                    <span class="placeholder-gem"><i class="fa-solid fa-gem"></i></span>
+                    <p>Set the 4Cs + dimensions<br>then click <strong style="color: var(--accent);">Predict Price</strong></p>
+                </div>
+
+                <div id="res" style="display: none;">
+                    <div class="priceBlock">
+                        <p class="priceLabel">Estimated Market Price</p>
+                        <p class="priceValue" id="pv">$0</p>
+                        <p class="priceRange">Range: <b id="p-lo">$0</b> - <b id="p-hi">$0</b></p>
+                    </div>
+
+                    <hr>
+
+                    <div class="statGrid">
+                        <div class="stat">
+                            <p class="statLabel">Model R2</p>
+                            <p class="statValue g" id="s-r2">-</p>
+                        </div>
+                        <div class="stat">
+                            <p class="statLabel">Average Error</p>
+                            <p class="statValue b" id="s-mae">-</p>
+                        </div>
+                        <div class="stat">
+                            <p class="statLabel">Your Carat</p>
+                            <p class="statValue a" id="s-ct">-</p>
+                        </div>
+                        <div class="stat">
+                            <p class="statLabel">Volume mm3</p>
+                            <p class="statValue" id="s-vol">-</p>
+                        </div>
+                    </div>
+
+                    <div class="grades">
+                        <p class="cardLabel" style="margin-bottom: 0.6rem;">Quality Profile</p>
+                        <div class="gradeRow">
+                            <span class="gradeKey">Cut</span>
+                            <div class="gradeBg"><div class="gradeFill" id="b-cut"></div></div>
+                            <span class="gradeV" id="v-cut">-</span>
+                        </div>
+                        <div class="gradeRow">
+                            <span class="gradeKey">Color</span>
+                            <div class="gradeBg"><div class="gradeFill" id="b-col"></div></div>
+                            <span class="gradeV" id="v-col">-</span>
+                        </div>
+                        </div>
+                        <div class="gradeRow">
+                            <span class="gradeKey">Clarity</span>
+                            <div class="gradeBg"><div class="gradeFill" id="b-cla"></div></div>
+                            <span class="gradeV" id="v-cla">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modelFooter">
+                    <span>Model: <strong id="footerModel">LightGPM</strong></span>
+                    <span>Trained on <strong>53,940</strong> diamonds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
