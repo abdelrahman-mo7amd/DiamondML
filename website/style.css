@@ -1,0 +1,109 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0c0c11;
+    --surface: #16161f;
+    --surface2: #1e1e2a;
+    --surface3: #252534;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.14);
+    --text: #ededf5;
+    --trans: #8b89a8;
+    --dim: #52506a;
+    --accent: #a78bfa;
+    --accent2: #7c3aed;
+    --gold: #fbbf24;
+    --gold2: #f59e0b;
+    --green: #10b981;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --r: 12px;
+    --r-sm: 8px;
+}
+
+body{
+    font-family: -apple-system, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+    position: relative;
+}
+
+.gem{
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.55));
+}
+
+.header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(120deg, #e0d7ff 0%, #a78bfa 45%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: var(--trans);
+    font-size: 0.95rem;
+}
+
+.statusPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 1rem;
+    padding: 5px 15px;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+.pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);}
+    75% {box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);}
+    100% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);}
+}
+
+.page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.25rem 5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template: 1fr 370px;
+    gap: 1.25rem;
+}
+
+@media (max-width: 820px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
