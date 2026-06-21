@@ -107,3 +107,434 @@ body{
     }
 }
 
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.75rem;
+}
+
+.cardLabel {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    margin-bottom: 1.2rem;
+
+}
+
+.sectionTitle {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 1.4rem 0 0.75rem;
+}
+.sectionTitle:first-child {
+    margin-top: 0;
+}
+
+.g2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.g3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .g2, .g3 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 0.73rem;
+    color: var(--trans);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+label .hint {
+    font-size: 0.65rem;
+    color: var(--dim);
+}
+
+
+input[type='number'], select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%238b89a8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+select option {
+    background: #1e1e2a;
+}
+
+input:focus, select:focus {
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+input:hover, select:hover {
+    border-color: var(--border2);
+}
+
+.sliderWrap {
+    grid-column: 1 / -1;
+}
+
+.sliderRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--surface2);
+    outline: none;
+    cursor: pointer;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    box-shadow: 0 0 0 6px rgba(167, 139, 250, 0.2);
+}
+
+.sliderValue {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 55px;
+    text-align: right;
+}
+
+.qualityPills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.qpill {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.15s;
+    background: var(--surface2);
+    color: var(--trans);
+    border-color: var(--border);
+}
+
+.qpill:hover {
+    border-color: var(--border2);
+    color: var(--text);
+}
+
+.qpill.sel {
+    background: rgba(167, 139, 250, 0.15);
+    color: var(--accent);
+    border-color: rgba(167, 139, 250, 0.4);
+}
+
+.btn{
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--accent2), #5b21b6);
+    border: none;
+    border-radius: var(--r-sm);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+    transition: 0.15s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled{
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.spin {
+    width: 17px;
+    height: 17px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: rot 0.65s linear infinite;
+    display: none;
+}
+
+@keyframes rot {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.err {
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: var(--r-sm);
+    padding: 11px 14px;
+    font-size: 0.8rem;
+    color: var(--red);
+    margin-top: 1rem;
+    display: none;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.4rem 0;
+}
+
+.infoTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.infoTable td {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.infoTable tr:last-child td {
+    border-bottom: none;
+}
+
+.infoTable td:first-child {
+    color: var(--trans);
+}
+
+.infoTable td:last-child {
+    color: var(--dim);
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+.resultCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.75rem;
+    position: sticky;
+    top: 1.25rem;
+}
+
+.placeholder {
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.placeholderGem {
+    font-size: 3rem;
+    opacity: 0.2;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.placeholder p {
+    font-size: 0.8rem;
+    color: var(--dim);
+    line-height: 1.6;
+}
+
+.priceBlock {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.priceLabel {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+}
+
+.priceValue {
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--gold);
+    margin: 6px 0;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+    transition: all 0.4s;
+}
+
+.priceRange {
+    font-size: 0.75rem;
+    color: var(--trans);
+}
+
+.priceRange b {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.statGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.stat {
+    background: var(--surface2);
+    border-radius: var(--r-sm);
+    padding: 11px 13px;
+}
+
+.statLabel {
+    font-size: 0.65rem;
+    color: var(--dim);
+    margin-bottom:3px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.statValue {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.statValue.g {
+    color: var(--green);
+}
+
+.statValue.b {
+    color: var(--blue);
+}
+
+.statValue.a {
+    color: var(--gold);
+}
+
+.grades {
+    margin-top: 1rem;
+}
+
+.gradeRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.gradeKey {
+    font-size: 0.7rem;
+    color: var(--trans);
+    min-width: 50px;
+}
+
+.gradeBg {
+    flex: 1;
+    height: 5px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.gradeFill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--accent);
+    width: 0;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradeV {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 50px;
+    text-align: right;
+}
+
+.modelFoot {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--dim);
+}
+
+.modelFoot strong {
+    color: var(--trans);
+    font-weight: 500;
+}
+
