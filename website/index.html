@@ -22,24 +22,25 @@
         <div class="grid">
             <div class="card">
                 <p class="cardLabel">Diamond Specifications</p>
+
                 <p class="sectionTitle">1. Carat Weight</p>
                 <div class="field sliderWrap">
-                    <label for="">Weight <span class="hint">(0.20 - 5.00 carats)</span></label>
+                    <label for="sl-carat">Weight <span class="hint">(0.20 - 5.00 carats)</span></label>
                     <div class="sliderRow">
-                        <input type="range" id="slCarat" min="0.2" max="5.0" step="0.01" value="1.0" oninput="onSlider(this)">
-                        <span class="sliderValue" id="sliderValue">1.00 ct</span>
+                        <input type="range" id="sl-carat" min="0.2" max="5.0" step="0.01" value="1.0" oninput="onSlider(this)">
+                        <span class="sliderValue" id="sl-val">1.00 ct</span>
                     </div>
                 </div>
 
                 <p class="sectionTitle">2. Cut Quality</p>
-                <div class="qualityPills" id="pills-cut">
-
-                </div>
+                <div class="qualityPills" id="pills-cut"></div>
                 <input type="hidden" id="cut" value="Ideal">
+
                 <p class="sectionTitle">3. Color Grade <span style="font-size: 0.65rem; color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0;">(D = best / most colorless)</span></p>
                 <div class="qualityPills" id="pills-color"></div>
                 <input type="hidden" id="color" value="E">
-                <p class="sectionTitle">Clarity Grade <span style="font-size: 0.65rem; color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0;">(IF = best)</span></p>
+
+                <p class="sectionTitle">4. Clarity Grade <span style="font-size: 0.65rem; color: var(--dim); font-weight: 400; text-transform: none; letter-spacing: 0;">(IF = best)</span></p>
                 <div class="qualityPills" id="pills-clarity"></div>
                 <input type="hidden" id="clarity" value="VVS1">
 
@@ -48,11 +49,11 @@
                 <p class="sectionTitle">5. Proportions</p>
                 <div class="g2">
                     <div class="field">
-                        <label for="">Depth % <span class='hint'>(40-85)</span></label>
+                        <label for="depth">Depth % <span class="hint">(40-85)</span></label>
                         <input type="number" id="depth" value="61.5" min="40" max="85" step="0.1">
                     </div>
                     <div class="field">
-                        <label for="">Table % <span class="hint">(40-100)</span></label>
+                        <label for="table">Table % <span class="hint">(40-100)</span></label>
                         <input type="number" id="table" value="55.0" min="40" max="100" step="0.1">
                     </div>
                 </div>
@@ -60,23 +61,22 @@
                 <p class="sectionTitle">6. Dimensions (mm)</p>
                 <div class="g3">
                     <div class="field">
-                        <label for="">X - Length</label>
+                        <label for="x">X - Length</label>
                         <input type="number" id="x" value="6.43" min="0.1" max="25" step="0.01">
                     </div>
                     <div class="field">
-                        <label for="">Y - Width</label>
+                        <label for="y">Y - Width</label>
                         <input type="number" id="y" value="6.40" min="0.1" max="25" step="0.01">
                     </div>
-                    </div>
                     <div class="field">
-                        <label for="">Z - Depth</label>
+                        <label for="z">Z - Depth</label>
                         <input type="number" id="z" value="4.0" min="0.1" max="25" step="0.01">
                     </div>
                 </div>
 
                 <button class="btn" id="btn" onclick="predict()">
                     <span class="spin" id="spin"></span>
-                    <span id="btnTxt">Predict Price</span>
+                    <span id="btn-txt">Predict Price</span>
                 </button>
 
                 <div class="err" id="err"></div>
@@ -85,10 +85,10 @@
 
                 <p class="cardLabel">Grade Reference</p>
                 <table class="infoTable">
-                    <tr><td>Cut</td> <td>Fair -> Good -> Very Good -> Premium -> Ideal</td></tr>
-                    <tr><td>Color</td> <td>J (tinted) -> D (colorless)</td></tr>
-                    <tr><td>Clarity</td> <td>I1 (inclusions) -> IF (flawless)</td></tr>
-                    <tr><td>Carat</td> <td>Weight - 1 ct = 0.2 g. Bigger -> pricier.</td></tr>
+                    <tr><td>Cut</td> <td>Fair -&gt; Good -&gt; Very Good -&gt; Premium -&gt; Ideal</td></tr>
+                    <tr><td>Color</td> <td>J (tinted) -&gt; D (colorless)</td></tr>
+                    <tr><td>Clarity</td> <td>I1 (inclusions) -&gt; IF (flawless)</td></tr>
+                    <tr><td>Carat</td> <td>Weight - 1 ct = 0.2 g. Bigger -&gt; pricier.</td></tr>
                 </table>
             </div>
 
@@ -140,7 +140,6 @@
                             <div class="gradeBg"><div class="gradeFill" id="b-col"></div></div>
                             <span class="gradeV" id="v-col">-</span>
                         </div>
-                        </div>
                         <div class="gradeRow">
                             <span class="gradeKey">Clarity</span>
                             <div class="gradeBg"><div class="gradeFill" id="b-cla"></div></div>
@@ -150,7 +149,7 @@
                 </div>
 
                 <div class="modelFooter">
-                    <span>Model: <strong id="footerModel">LightGPM</strong></span>
+                    <span>Model: <strong id="foot-model">LightGBM</strong></span>
                     <span>Trained on <strong>53,940</strong> diamonds</span>
                 </div>
             </div>
