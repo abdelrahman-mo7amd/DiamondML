@@ -136,7 +136,7 @@ async function predict() {
   } finally {
     btn.disabled = false;
     spin.style.display = 'none';
-    btxt.textContent = '✨ Predict Price';
+    btxt.textContent = 'Predict Price';
   }
 }
 
