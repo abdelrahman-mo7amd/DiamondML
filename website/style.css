@@ -161,11 +161,9 @@ body {
 
     color: var(--dim);
 
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 1.3px;
+    letter-spacing: -0.4px;
 }
 
 .sectionTitle {
@@ -206,13 +204,13 @@ input[type="number"] {
     color: var(--text);
     background: transparent;
     border: 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 3px solid var(--line);
     border-radius: 30px;
     font-family: inherit;
     font-size: 13px;
     outline: none;
     transition: 0.15s ease-in-out;
-    padding-left: 15px;
+    padding: 10px 20px;
 }
 
 input[type="number"]:focus {
@@ -319,9 +317,10 @@ hr {
     border: 1px solid var(--accent);
     border-radius: 30px;
     font-family: inherit;
-    font-size: 10px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
+    letter-spacing: -0.5px;
     transition: 0.15s ease-in-out;
 }
 
