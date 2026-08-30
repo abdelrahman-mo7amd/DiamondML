@@ -1,0 +1,89 @@
+{
+  "model_name": "LightGPM",
+  "features": [
+    "Carat(Weight of Daimond)",
+    "log_carat",
+    "Depth",
+    "Table",
+    "X(length)",
+    "Y(width)",
+    "Z(Depth)",
+    "volume",
+    "log_volume",
+    "depth_ratio",
+    "cut_enc",
+    "color_enc",
+    "clarity_enc"
+  ],
+  "r2_score": 0.9931,
+  "rmse_price": 519.95,
+  "mae_price": 257.47,
+  "mape": 6.02,
+  "training_rows": 43152,
+  "test_rows": 10788,
+  "price_min": 326,
+  "price_max": 18823,
+  "price_mean": 3930,
+  "col_carat": "Carat(Weight of Daimond)",
+  "col_cut": "Cut(Quality)",
+  "col_color": "Color",
+  "col_clarity": "Clarity",
+  "col_depth": "Depth",
+  "col_table": "Table",
+  "col_x": "X(length)",
+  "col_y": "Y(width)",
+  "col_z": "Z(Depth)",
+  "col_price": "Price(in US dollars)",
+  "cut_options": [
+    "Fair",
+    "Good",
+    "Very Good",
+    "Premium",
+    "Ideal"
+  ],
+  "color_options": [
+    "J",
+    "I",
+    "H",
+    "G",
+    "F",
+    "E",
+    "D"
+  ],
+  "clarity_options": [
+    "I1",
+    "SI2",
+    "SI1",
+    "VS2",
+    "VS1",
+    "VVS2",
+    "VVS1",
+    "IF"
+  ],
+  "cut_enc_order": [
+    "Fair",
+    "Good",
+    "Very Good",
+    "Premium",
+    "Ideal"
+  ],
+  "color_enc_order": [
+    "J",
+    "I",
+    "H",
+    "G",
+    "F",
+    "E",
+    "D"
+  ],
+  "clarity_enc_order": [
+    "I1",
+    "SI2",
+    "SI1",
+    "VS2",
+    "VS1",
+    "VVS2",
+    "VVS1",
+    "IF"
+  ]
+}
