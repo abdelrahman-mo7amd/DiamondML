@@ -452,21 +452,21 @@ hr {
     padding: 10px;
     background: var(--paper-dark);
     border: 1px solid #e0d9c8;
+    border-radius: 20px;
 }
 
 .statLabel {
     color: var(--dim);
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: -0.3px;
 }
 
 .statValue {
     margin-top: 3px;
     color: var(--text);
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .statValue.g {
