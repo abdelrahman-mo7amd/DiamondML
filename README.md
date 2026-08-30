@@ -2,6 +2,12 @@
 
 ![banner](banner.jpg)
 
+<p align="center">
+    <a href="https://diamond.kernel-abdelrahman.hackclub.app"><b>LIVE DEMO</b></a>
+    <a href="#running-it-locally">run it locally</a>
+    <a href="https://github.com/abdelrahman-mo7amd/DiamondML">Repo</a>
+</p>
+
 ### so... how much is that rock actually worth?? 👀
 
 Ngl i was tired of ML projects that go "here's dataset, here's a model, 94% accuracy, peace✌️", and just dip. That is not a project, that's a screenshot.
@@ -12,6 +18,25 @@ So yeah, this is a little web app that takes the details of a diamond and tries 
 
 basically, you give it the diamond's 4Cs + dimensions, and it does its thing, you get a number (price). That's the whole app.
 
+---
+# try it live rn (no setup needed)
+ok so if you dont wanna clone anything and just wanna mess with it real quick: 
+https://diamond.kernel-abdelrahman.hackclub.app
+yeah it's actually deployed, actually live, actually hosted on real server (shoutout Nest for the free hosting, teenage devs unite 🐦). 
+throw some diamond specs at it and watch the model cook in real time, no pip install required.
+
+if it's ever down it's probably cu i broke something pushing an update at 4 am , give it a sec and try again!
+
+---
+## AI declaration
+ngl gotta keep it real! honest breakdown:
+code: AI helped with a few bits of CSS styling (spacing, flexbox stuff, general, "make it less 2004"). everything else, the ML pipeline, feature eng, model comparison, flask api, all the actual logic , that's me, no assist
+
+deployment: had this whole app running perfectly locally and then had zero clue how to make it live 💀 so i got walked through deploying it on Nest with Claude to help me in that, SSH access, setting it up with systemd so it runs permanently, wiring up a domain + SSL through their dashboard, all of it by assistance from claude after i sent him the Nest official guide to explain and get clues from it.
+
+so yeah the ML and the code? all me. the "how do i turn a laptop project into a real URL" part? actually i can do it myself when it is without Flask API, on vercel or smth, but i needed to use Nest for the first time cuz it is flask api server, now i actually get how deployment works instead of it being a black box
+
+transparency <<3
 ---
 
 ## what does it can do
@@ -136,6 +161,19 @@ so please don't take this number to a jeweler, try to sell your grandma's ring o
 
 `python, lightGPM, flask, javaScript, html, css`
 made with unreasonable amount of coffee and red bulls and some genuinely questionable debugging decisions at 2am ☕
+
+---
+## what's next (maybe, no promises)
+
+this thing works but it's not 'done' done, here is stuff living in my brain rent-free: 
+
+- shape an actual input (round, princess, cushion, etc.), rn the model has no clue what shape it's looking at
+- a "compare 2 diamonds" mode, side by side, for the indecisive shoppers
+- dark mode toggle cuz apparently that's the law now
+- confidence intervals that are atually visualied instead of just a number
+- maybe retrain on a bigger/newer dataset at some point, 53k diamonds is cool but more data never hurt nobody
+
+no timeline of any of this, it happens when it happens, this is a passion project not a sprint backlog!
 
 --- 
 ## if you thought this was kinda cool
